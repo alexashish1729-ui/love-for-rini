@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>8 Months With You Rini ❤️</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500;700&family=Great+Vibes&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+
+body{
+margin:0;
+font-family:'Poppins',sans-serif;
+background:linear-gradient(135deg,#ff6a88,#ff99ac);
+color:white;
+text-align:center;
+overflow-x:hidden;
+}
+
+h1{
+font-family:'Great Vibes',cursive;
+font-size:70px;
+margin-top:40px;
+letter-spacing:2px;
+}
+
+h2{
+font-family:'Dancing Script',cursive;
+font-size:36px;
+}
+
+/* floating hearts */
+
+.heart{
+position:fixed;
+bottom:-20px;
+font-size:20px;
+animation:float 7s linear infinite;
+pointer-events:none;
+}
+
+@keyframes float{
+0%{transform:translateY(0);opacity:1}
+100%{transform:translateY(-900px);opacity:0}
+}
+
+/* love timer */
+
+.timer{
+font-size:24px;
+margin-top:10px;
+font-weight:300;
+}
+
+/* love letter */
+
+.letter{
+max-width:750px;
+margin:auto;
+padding:25px;
+font-size:22px;
+line-height:1.8;
+font-family:'Dancing Script',cursive;
+min-height:160px;
+}
+
+/* heart gallery */
+
+.heart-grid{
+display:flex;
+justify-content:center;
+flex-wrap:wrap;
+margin-top:30px;
+}
+
+.heart-btn{
+font-size:48px;
+margin:12px;
+cursor:pointer;
+transition:0.3s;
+}
+
+.heart-btn:hover{
+transform:scale(1.4);
+}
+
+.gallery{
+margin-top:30px;
+}
+
+.gallery img{
+width:230px;
+border-radius:18px;
+margin:10px;
+box-shadow:0 15px 25px rgba(0,0,0,0.35);
+animation:fade 1s ease;
+}
+
+@keyframes fade{
+from{opacity:0;transform:scale(.7)}
+to{opacity:1;transform:scale(1)}
+}
+
+button{
+padding:16px 34px;
+font-size:20px;
+border:none;
+border-radius:35px;
+background:white;
+color:#ff3c6f;
+cursor:pointer;
+margin:25px;
+font-weight:600;
+}
+
+button:hover{
+transform:scale(1.1);
+}
+
+/* final surprise screen */
+
+#final{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:black;
+display:none;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+text-align:center;
+overflow:hidden;
+}
+
+/* stars */
+
+.star{
+position:absolute;
+width:3px;
+height:3px;
+background:white;
+border-radius:50%;
+animation:twinkle 2s infinite alternate;
+}
+
+@keyframes twinkle{
+0%{opacity:.2}
+100%{opacity:1}
+}
+
+.shooting{
+position:absolute;
+width:2px;
+height:80px;
+background:linear-gradient(-45deg,white,transparent);
+animation:shoot 2s linear infinite;
+}
+
+@keyframes shoot{
+0%{transform:translate(-200px,-200px) rotate(45deg);opacity:1}
+100%{transform:translate(800px,800px) rotate(45deg);opacity:0}
+}
+
+#final img{
+width:350px;
+border-radius:25px;
+box-shadow:0 20px 40px rgba(255,255,255,0.2);
+animation:zoom 3s ease;
+position:relative;
+z-index:2;
+}
+
+#final h2{
+font-family:'Great Vibes',cursive;
+font-size:72px;
+margin-top:30px;
+color:#ff8fab;
+animation:fadeText 4s ease forwards;
+position:relative;
+z-index:2;
+}
+
+#foreverLine{
+font-family:'Dancing Script',cursive;
+font-size:40px;
+margin-top:20px;
+color:#ffd1dc;
+opacity:0;
+animation:fadeText 6s ease forwards;
+animation-delay:3s;
+position:relative;
+z-index:2;
+}
+
+@keyframes zoom{
+0%{transform:scale(.2);opacity:0}
+100%{transform:scale(1);opacity:1}
+}
+
+@keyframes fadeText{
+0%{opacity:0;transform:translateY(40px)}
+100%{opacity:1;transform:translateY(0)}
+}
+
+</style>
+</head>
+
+<body>
+
+<audio id="bgmusic" loop>
+<source src="song.mp3" type="audio/mp3">
+</audio>
+
+<h1>Happy 8 Months Rini ❤️</h1>
+
+<div class="timer" id="timer"></div>
+
+<div class="letter" id="letter"></div>
+
+<audio id="typeSound" src="type.mp3"></audio>
+
+<h2>Click the hearts to reveal our memories ❤️</h2>
+
+<div class="heart-grid">
+<span class="heart-btn" onclick="showPic('photo1.jpg')">❤️</span>
+<span class="heart-btn" onclick="showPic('photo2.jpg')">❤️</span>
+<span class="heart-btn" onclick="showPic('photo3.jpg')">❤️</span>
+<span class="heart-btn" onclick="showPic('photo4.jpg')">❤️</span>
+<span class="heart-btn" onclick="showPic('photo5.jpg')">❤️</span>
+</div>
+
+<div class="gallery" id="gallery"></div>
+
+<button onclick="finalSurprise()">Final Surprise ✨</button>
+
+<div id="final">
+
+<div id="stars"></div>
+
+<img src="finalphoto.jpg">
+<h2>I Love You Forever Rini ❤️</h2>
+<div id="foreverLine">And I promise to keep loving you more every single day of my life.</div>
+
+</div>
+
+<!-- Intro screen -->
+
+<div id="intro" style="position:fixed;inset:0;background:black;display:flex;flex-direction:column;align-items:center;justify-content:center;color:white;z-index:9999;">
+<h2 style="font-family:'Great Vibes',cursive;font-size:60px;margin-bottom:30px;">A Surprise For You Rini ❤️</h2>
+<button onclick="startExperience()" style="font-size:22px;padding:16px 36px;border-radius:40px;border:none;background:#ff4d88;color:white;cursor:pointer;">Open My Heart</button>
+</div>
+
+<script>
+
+/* floating hearts */
+
+function createHeart(){
+const heart=document.createElement("div");
+heart.className="heart";
+heart.innerHTML="❤️";
+heart.style.left=Math.random()*100+"vw";
+heart.style.fontSize=(Math.random()*25+12)+"px";
+document.body.appendChild(heart);
+setTimeout(()=>heart.remove(),7000);
+}
+
+setInterval(createHeart,300);
+
+/* love timer */
+
+const startDate=new Date("2025-07-05");
+
+function updateTimer(){
+const now=new Date();
+const diff=now-startDate;
+
+const days=Math.floor(diff/(1000*60*60*24));
+const hours=Math.floor((diff/(1000*60*60))%24);
+const minutes=Math.floor((diff/(1000*60))%60);
+const seconds=Math.floor((diff/1000)%60);
+
+ document.getElementById("timer").innerHTML=
+ "We have been loving each other for <b>" + days + " days " + hours + " hours " + minutes + " minutes " + seconds + " seconds</b> ❤️";
+}
+
+setInterval(updateTimer,1000);
+updateTimer();
+
+/* love letter typing */
+
+const text=`My dearest Rini...\n\nThese 8 months with you have been the most beautiful chapter of my life and the most exciting too.\n I have never been so attached to anyone the way its with you like how bubuuu..  .\nEvery moment with you feels magical and most chaotic too like for a moment we are smiling the next second we are hunger for blood i mean you not me.\n\nYour smile is my favorite view for sure but I am also loving the rest of the views which i have seen .\nYour voice is my favorite sound but i still miss that puri wala inside car.\n\nThank you for being my happiness, my peace, and my forever.\n\nI love you more every single day ❤️`;
+ 
+let i=0;
+
+function typeLetter(){
+if(i<text.length){
+ document.getElementById("letter").innerHTML+=text.charAt(i);
+ const sound=document.getElementById("typeSound");
+ sound.currentTime=0;
+ sound.play();
+ i++;
+ setTimeout(typeLetter,45);
+}
+}
+
+setTimeout(typeLetter,1200);
+
+/* reveal photos */
+
+function showPic(src){
+const img=document.createElement("img");
+img.src=src;
+ document.getElementById("gallery").appendChild(img);
+}
+
+/* final surprise */
+
+function finalSurprise(){
+
+ document.getElementById("final").style.display="flex";
+
+ const starContainer=document.getElementById("stars");
+
+ for(let i=0;i<120;i++){
+  const star=document.createElement("div");
+  star.className="star";
+  star.style.left=Math.random()*100+"vw";
+  star.style.top=Math.random()*100+"vh";
+  starContainer.appendChild(star);
+ }
+
+ setInterval(()=>{
+  const shoot=document.createElement("div");
+  shoot.className="shooting";
+  shoot.style.left=Math.random()*100+"vw";
+  shoot.style.top=Math.random()*50+"vh";
+  starContainer.appendChild(shoot);
+
+  setTimeout(()=>shoot.remove(),2000);
+
+ },1500);
+
+}
+
+/* intro heart explosion */
+
+function startExperience(){
+
+const music = document.getElementById("bgmusic");
+music.play();
+
+const intro=document.getElementById('intro');
+intro.innerHTML="";
+
+for(let i=0;i<80;i++){
+ const heart=document.createElement('div');
+ heart.innerHTML='❤️';
+ heart.style.position='absolute';
+ heart.style.left='50%';
+ heart.style.top='50%';
+ heart.style.fontSize=(Math.random()*30+20)+'px';
+ heart.style.transition='all 1.2s ease';
+ intro.appendChild(heart);
+
+ setTimeout(()=>{
+  const x=(Math.random()-0.5)*800;
+  const y=(Math.random()-0.5)*600;
+  heart.style.transform=`translate(${x}px,${y}px) scale(0.5)`;
+  heart.style.opacity='0';
+ },20);
+}
+
+setTimeout(()=>{
+ intro.style.display='none';
+},1200);
+
+}
+
+</script>
+
+</body>
+</html>
